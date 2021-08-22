@@ -27,10 +27,11 @@ COPY ./ops/nginx.conf /etc/nginx/conf.d/default.conf
 # Copy build from the 'build environment'
 COPY --from=build /usr/src/app/dist /usr/share/nginx/html
 
-EXPOSE 80
+EXPOSE 4201
 
 # generate dynamic json from env
-COPY ./ops/docker-entrypoint.sh /
-ENTRYPOINT ["/docker-entrypoint.sh"]
+#COPY ./ops/docker-entrypoint.sh /
+#ENTRYPOINT ["/docker-entrypoint.sh"]
 
-CMD ["nginx", "-g", "daemon off;"]
+#CMD ["nginx", "-g", "daemon off;"]
+ENTRYPOINT ["nginx", "-g", "daemon off;"]
